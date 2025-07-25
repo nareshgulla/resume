@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gulla Naresh - Email Marketing Specialist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .name {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .title {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            color: white;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+            color: rgba(255,255,255,0.8);
+        }
+
+        .contact-item i {
+            font-size: 1.1rem;
+        }
+
+        .main-content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            animation: slideInLeft 0.6s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .profile-summary {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+        }
+
+        .experience-item {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid #3498db;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .company-period {
+            color: #7f8c8d;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .job-description {
+            color: #555;
+            line-height: 1.7;
+            font-size: 0.95rem;
+            margin-top: 10px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .skill-category h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .skill-list {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .responsibilities-list {
+            list-style: none;
+        }
+
+        .responsibilities-list li {
+            background: white;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            border-left: 3px solid #27ae60;
+            transition: transform 0.3s ease;
+        }
+
+        .responsibilities-list li:hover {
+            transform: translateX(5px);
+        }
+
+        .responsibilities-list li::before {
+            content: '✓';
+            color: #27ae60;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .education-item {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            border-left: 3px solid #9b59b6;
+        }
+
+        .degree {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .institution {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+        }
+
+        .personal-details {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #f39c12;
+        }
+
+        .personal-item {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .personal-label {
+            font-weight: 600;
+            color: #2c3e50;
+            width: 150px;
+        }
+
+        .declaration {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            font-style: italic;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .name {
+                font-size: 2.2rem;
+            }
+
+            .contact-info {
+                gap: 15px;
+            }
+
+            .contact-item {
+                font-size: 0.9rem;
+            }
+
+            .main-content {
+                padding: 25px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .personal-label {
+                width: 120px;
+                font-size: 0.9rem;
+            }
+            
+            .timeline {
+                padding-left: 0;
+            }
+            
+            .timeline::before {
+                display: none;
+            }
+            
+            .experience-item {
+                margin-left: 0;
+                padding: 20px;
+            }
+            
+            .experience-icon {
+                position: static;
+                width: 40px;
+                height: 40px;
+                margin-bottom: 15px;
+                font-size: 1rem;
+            }
+            
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .company-period {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .name {
+                font-size: 1.8rem;
+            }
+
+            .title {
+                font-size: 1.1rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="name">Gulla Naresh</h1>
+                <p class="title">Email Marketing Specialist</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 9963574785</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>gnareshgulla9963@gmail.com</span>
+                    </div>
+                    <a href="https://www.linkedin.com/in/gulla-naresh/" target="_blank" class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn Profile</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="section">
+                <h2 class="section-title">Profile Summary</h2>
+                <div class="profile-summary">
+                    A highly motivated professional, seeking a position in an organization that encourages innovation and provides ample opportunities to learn and contribute to the growth of self and the organization.
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Professional Experience</h2>
+                <div class="experience-item">
+                    <div class="job-title"><i class="fas fa-rocket" style="color: #e74c3c; margin-right: 10px;"></i>Email Marketing Specialist</div>
+                    <div class="company-period">KoreRPO | Jan 2025 – Present</div>
+                    <div class="job-description">
+                        Leading comprehensive email marketing campaigns with advanced automation and deliverability optimization. Managing multi-domain infrastructure and implementing strategic A/B testing to maximize engagement rates and ROI.
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="job-title"><i class="fas fa-chart-line" style="color: #3498db; margin-right: 10px;"></i>Email Marketing Specialist</div>
+                    <div class="company-period">TechsXpress.com | Sep 2024 – Dec 2024</div>
+                    <div class="job-description">
+                        Developed and executed targeted email campaigns using advanced segmentation strategies. Improved open rates by 25% through optimized subject lines and sender reputation management. Collaborated with design teams to create responsive email templates.
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="job-title"><i class="fas fa-cogs" style="color: #27ae60; margin-right: 10px;"></i>Email Marketing Executive</div>
+                    <div class="company-period">Eglogics Softech Pvt Ltd | May 2023 – Jun 2023</div>
+                    <div class="job-description">
+                        Managed email marketing operations including list building, campaign creation, and performance analytics. Implemented SPF, DKIM, and DMARC protocols to ensure high deliverability rates. Conducted competitor analysis and market research for campaign optimization.
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="job-title"><i class="fas fa-users" style="color: #f39c12; margin-right: 10px;"></i>Process Associate</div>
+                    <div class="company-period">Way2Online Interactive India Pvt Ltd | Jul 2017 – Sep 2022</div>
+                    <div class="job-description">
+                        Handled end-to-end digital marketing processes including lead generation, data mining, and client communication. Achieved consistent performance targets while maintaining quality standards. Gained expertise in various digital marketing tools and CRM systems.
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Email Marketing Tools</h4>
+                        <div class="skill-list">Apollo.io, Mailchimp, HubSpot, SendGrid, Zoho, Constant Contact, ConvertKit</div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Microsoft Office Suite</h4>
+                        <div class="skill-list">Excel (Advanced), PowerPoint, Word, Outlook, Teams, SharePoint</div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Data Mining & Lead Generation</h4>
+                        <div class="skill-list">Apollo.io, LinkedIn Sales Navigator, Seamless.ai, ZoomInfo, Hunter.io, Clearbit</div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Web Development & CMS</h4>
+                        <div class="skill-list">WordPress, HTML/CSS, Responsive Email Templates, Canva, Adobe Creative Suite</div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Paid Advertising</h4>
+                        <div class="skill-list">Google Ads, Meta Ads (Facebook & Instagram), LinkedIn Ads, Google Analytics, UTM Tracking</div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Automation & CRM</h4>
+                        <div class="skill-list">LinkedIn Automation, Zapier, Salesforce, Pipedrive, ActiveCampaign, Pardot</div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>SEO & Digital Marketing</h4>
+                        <div class="skill-list">Off-page SEO, Blog posting, Classifieds, Bookmarks, Articles, Keyword Research</div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Analytics & Reporting</h4>
+                        <div class="skill-list">Tableau, Google Analytics, Facebook Analytics, Email Performance Tracking, Data Visualization</div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Social Media Marketing</h4>
+                        <div class="skill-list">Facebook, Twitter, LinkedIn, Instagram, Buffer, Hootsuite, Social Media Analytics</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Job Responsibilities</h2>
+                <ul class="responsibilities-list">
+                    <li>Managing 60+ Domains across 3 Servers with load balancing and optimization</li>
+                    <li>Reporting email campaign performance daily with detailed analytics and KPI tracking</li>
+                    <li>Sending 30 Lakh+ emails daily with high deliverability rates (95%+)</li>
+                    <li>A/B Testing, IP allocation, Domain warm-up, and monitoring open rate optimization</li>
+                    <li>HTML template editing, SPF/DKIM/DMARC validation and email authentication setup</li>
+                    <li>Real-time campaign tracking, audience analysis, CTR improvements and conversion optimization</li>
+                    <li>Lead generation and qualification using advanced prospecting tools and techniques</li>
+                    <li>Database management and segmentation for targeted marketing campaigns</li>
+                    <li>Creating and managing WordPress landing pages for email capture and conversion</li>
+                    <li>Setting up and optimizing Google Ads and Meta Ads campaigns for lead generation</li>
+                    <li>LinkedIn automation for outreach and connection building with prospects</li>
+                    <li>Email list cleaning and hygiene maintenance to ensure optimal deliverability</li>
+                    <li>Implementing marketing automation workflows and drip campaigns</li>
+                    <li>Competitor analysis and market research for campaign strategy development</li>
+                    <li>CRM integration and data synchronization across multiple platforms</li>
+                    <li>Creating detailed performance reports and presenting insights to stakeholders</li>
+                    <li>Training team members on email marketing best practices and tools</li>
+                    <li>Managing client relationships and providing strategic email marketing consultation</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Education</h2>
+                <div class="education-item">
+                    <div class="degree">Diploma in Mechanical Engineering (60%)</div>
+                    <div class="institution">Krishna Devaraya Govt Polytechnic</div>
+                </div>
+                <div class="education-item">
+                    <div class="degree">Intermediate (60%)</div>
+                    <div class="institution">Telangana Open School Society, Hyderabad</div>
+                </div>
+                <div class="education-item">
+                    <div class="degree">S.S.C (GPA 8.7)</div>
+                    <div class="institution">Anus Academy School, Wanaparthy</div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Personal Details</h2>
+                <div class="personal-details">
+                    <div class="personal-item">
+                        <span class="personal-label">Date of Birth:</span>
+                        <span>12-04-1999</span>
+                    </div>
+                    <div class="personal-item">
+                        <span class="personal-label">Nationality:</span>
+                        <span>Indian</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
